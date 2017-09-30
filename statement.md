@@ -58,8 +58,8 @@ public final class de/swirtz/kotlin/FileKt {
     LINENUMBER 3 L0
     RETURN
    L1
-    MAXSTACK # 0
-    MAXLOCALS # 0
+    MAXSTACK = 0
+    MAXLOCALS = 0
 
   @Lkotlin/Metadata;
   // compiled from: File.kt
@@ -81,7 +81,7 @@ As you can see and probably already know, a Kotlin top level class is compiled i
 ```kotlin
 class MyClass(val i: Int)
 
-fun MyClass.myExtension(value: String) # value.length
+fun MyClass.myExtension(value: String) = value.length
 ```
 
 This one shows a simple class `MyClass` with a `property` of type `Int` as well as a top level extension function.
@@ -96,7 +96,7 @@ public final class MyClass {
    }
 
    public MyClass(int i) {
-      this.i # i;
+      this.i = i;
    }
 }
 ```
@@ -124,7 +124,7 @@ public final class FileKt {
    @Nullable
    public static final Integer myExtension(@NotNull MyClass $receiver, @Nullable String value) {
       Intrinsics.checkParameterIsNotNull($receiver, "$receiver");
-      return value !# null?Integer.valueOf(value.length()):null;
+      return value != null?Integer.valueOf(value.length()):null;
    }
 }
 ```
@@ -143,10 +143,10 @@ fun loopWithRange(){
 
 ```java
  public static final void loopWithRange() {
-      IntProgression var10000 # RangesKt.step(RangesKt.downTo(5, 1), 2);
-      int i # var10000.getFirst(); //i: 5
-      int var1 # var10000.getLast(); //var1: 1
-      int var2 # var10000.getStep(); //var2: -2
+      IntProgression var10000 = RangesKt.step(RangesKt.downTo(5, 1), 2);
+      int i = var10000.getFirst(); //i: 5
+      int var1 = var10000.getLast(); //var1: 1
+      int var2 = var10000.getStep(); //var2: -2
       if(var2 > 0) {
          if(i > var1) {
             return;
@@ -157,11 +157,11 @@ fun loopWithRange(){
 
       while(true) {
          System.out.print(i);
-         if(i ## var1) {
+         if(i == var1) {
             return;
          }
 
-         i +# var2;
+         i += var2;
       }
    }
 ```
