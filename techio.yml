@@ -1,4 +1,4 @@
-title: Simple Kotlin Template
+title: Kotlin Bytecode for the JVM - How does the language work
 plan:
-- title: Kotlin Snippet
+- title: Kotlin Bytecode for the JVM - How does the language work
   statement: statement.md
