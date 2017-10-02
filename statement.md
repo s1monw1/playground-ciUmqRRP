@@ -91,14 +91,14 @@ Having said that, it becomes obvious how we can call a Kotlin top level function
 
 ```java runnable
 //declaration would normally be in kt file like this: fun foobar(){}
-public final class FileKt {
+final class FileKt {
     public static final void foobar() {
         System.out.println("foobar got called");
     }
 
 }
 
-class FoobarClient {
+public class Main {
     public static void main(String[] args) {
         FileKt.foobar();
     }
