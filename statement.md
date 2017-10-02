@@ -52,18 +52,27 @@ This simple top level function defined in a .kt file can be investigated with In
 
 ```java
 public final class de/swirtz/kotlin/FileKt {
-  // access flags 0x19
+
   public final static foobar()V
    L0
-    LINENUMBER 3 L0
-    RETURN
+    LINENUMBER 4 L0
+    LDC "foobar got called"
+    ASTORE 0
    L1
-    MAXSTACK = 0
-    MAXLOCALS = 0
+    GETSTATIC java/lang/System.out : Ljava/io/PrintStream;
+    ALOAD 0
+    INVOKEVIRTUAL java/io/PrintStream.println (Ljava/lang/Object;)V
+   L2
+   L3
+    LINENUMBER 5 L3
+    RETURN
+   L4
+    MAXSTACK = 2
+    MAXLOCALS = 1
 
-  @Lkotlin/Metadata;
   // compiled from: File.kt
 }
+
 ```
 
 I'm afraid only a few people can actually read these files, which is why we can also choose the option "Decompile". Afterwards we'll be presented a Java class representing the functionality previously described with Kotlin:
@@ -71,11 +80,32 @@ I'm afraid only a few people can actually read these files, which is why we can 
 ```java
 public final class FileKt {
    public static final void foobar() {
+      String var0 = "foobar got called";
+      System.out.println(var0);
    }
 }
 ```
 
-As you can see and probably already know, a Kotlin top level class is compiled into a final Java class with a static function (This structure looks like what extension functions mean to replace: utility classes). Let's see a more difficult one:
+As you can see and probably already know, a Kotlin top level class is compiled into a final Java class with a static function (This structure looks like what extension functions mean to replace: utility classes). 
+Having said that, it becomes obvious how we can call a Kotlin top level function from Java:
+
+```java runnable
+//declaration would normally be in kt file like this: fun foobar(){}
+public final class FileKt {
+    public static final void foobar() {
+        System.out.println("foobar got called");
+    }
+
+}
+
+class FoobarClient {
+    public static void main(String[] args) {
+        FileKt.foobar();
+    }
+}
+```
+
+Let's see a more difficult one:
 
 
 ```kotlin
