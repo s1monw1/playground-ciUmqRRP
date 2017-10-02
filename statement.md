@@ -162,7 +162,7 @@ public final class FileKt {
 Checking `value` is not necessary anymore since we told the compiler that `null` is an acceptable thing to point to. <br/>
 The next example is a bit more tricky. It's the one with the greatest difference between Kotlin and Java code:
 
-```kotlin
+```kotlin runnable
 ----
 //only added for making the example runnable
 fun main(args: Array<String>) {
@@ -176,7 +176,7 @@ fun loopWithRange(){
 }
 ```
 
-```java
+```java runnable
 import kotlin.ranges.*;
 
 //only added for making the example runnable
