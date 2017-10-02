@@ -164,6 +164,11 @@ The next example is a bit more tricky. It's the one with the greatest difference
 
 ```kotlin
 ----
+//only added for making the example runnable
+fun main(args: Array<String>) {
+    loopWithRange()
+}
+
 fun loopWithRange(){
     for(i in 5 downTo 1 step 2){
         print(i)
@@ -172,28 +177,40 @@ fun loopWithRange(){
 ```
 
 ```java
- public static final void loopWithRange() {
-      IntProgression var10000 = RangesKt.step(RangesKt.downTo(5, 1), 2);
-      int i = var10000.getFirst(); //i: 5
-      int var1 = var10000.getLast(); //var1: 1
-      int var2 = var10000.getStep(); //var2: -2
-      if(var2 > 0) {
-         if(i > var1) {
-            return;
-         }
-      } else if(i < var1) {
-         return;
-      }
+import kotlin.ranges.*;
 
-      while(true) {
-         System.out.print(i);
-         if(i == var1) {
-            return;
-         }
+//only added for making the example runnable
+class Main {
+    public static void main(String[] args) {
+        FileKt.loopWithRange();
+    }
+}
 
-         i += var2;
-      }
-   }
+public final class FileKt {
+    public static final void loopWithRange() {
+        IntProgression var10000 = RangesKt.step(RangesKt.downTo(5, 1), 2);
+        int i = var10000.getFirst(); //i: 5
+        int var1 = var10000.getLast(); //var1: 1
+        int var2 = var10000.getStep(); //var2: -2
+        if(var2 > 0) {
+            if(i > var1) {
+                return;
+            }
+        } else if(i < var1) {
+            return;
+        }
+
+        while(true) {
+            System.out.print(i);
+            if(i == var1) {
+                return;
+            }
+
+            i += var2;
+        }
+    }
+
+}
 ```
 
 Although the Java code is still quite understandable, probably nobody would write it in real life, because a simple `for` could do it, too. We need to consider that `downTo` and `step` are _infix notations_, which are function calls actually.
