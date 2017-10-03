@@ -149,7 +149,6 @@ One thing we can also observe in the example is the use of a class called `Intri
 Let's see what would happen if we changed the inital extension function's parameter to `value: String?` and of course access `length` in a safe way.
 
 ```java
-----
 public final class FileKt {
    @Nullable
    public static final Integer myExtension(@NotNull MyClass $receiver, @Nullable String value) {
@@ -163,7 +162,6 @@ Checking `value` is not necessary anymore since we told the compiler that `null`
 The next example is a bit more tricky. It's the one with the greatest difference between Kotlin and Java code:
 
 ```kotlin
-----
 fun loopWithRange(){
     for(i in 5 downTo 1 step 2){
         print(i)
